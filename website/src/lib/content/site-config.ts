@@ -44,8 +44,13 @@ const siteConfigSchema = z.object({
 
 export type SiteConfig = z.infer<typeof siteConfigSchema>
 
-export const siteConfig: SiteConfig = validateData(
-  siteConfigSchema,
-  raw,
-  'src/data/site.config.json',
-)
+const parsedConfig = validateData(siteConfigSchema, raw, 'src/data/site.config.json')
+
+// __BASE_PATH__ (vite.config.ts) overrides the JSON file's basePath when
+// resolved from GitHub Actions' GITHUB_REPOSITORY env var — see
+// resolveBasePath() there for why: it's what makes a renamed fork deploy
+// correctly without hand-editing this file.
+export const siteConfig: SiteConfig = {
+  ...parsedConfig,
+  basePath: __BASE_PATH__,
+}
