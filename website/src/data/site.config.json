@@ -1,7 +1,7 @@
 {
   "siteTitle": "Roopesh Tayaloor",
   "tagline": "AI Engineer building products, tools, and the people who ship them.",
-  "basePath": "/mirai-launchpad/",
+  "basePath": "/profile/",
   "defaultTheme": "dark-tech",
   "availableThemes": ["modern-minimal", "dark-tech", "vibrant-creative", "blue-professional"],
   "favicon": "/favicon.svg",
