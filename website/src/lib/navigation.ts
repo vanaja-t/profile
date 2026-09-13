@@ -1,4 +1,4 @@
-import { BookOpen, FileText, FolderKanban, Home, Settings2 } from 'lucide-react'
+import { BookOpen, FileText, FolderKanban, Home, Settings2, Sparkles } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { siteConfig } from '@/lib/content/site-config'
 
@@ -12,6 +12,7 @@ const NAV_ROUTES: Record<string, { path: string; icon: LucideIcon }> = {
   home: { path: '/', icon: Home },
   resume: { path: '/resume', icon: FileText },
   projects: { path: '/projects', icon: FolderKanban },
+  others: { path: '/others', icon: Sparkles },
   blog: { path: '/blog', icon: BookOpen },
 }
 

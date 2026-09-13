@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { PageTransition } from '@/components/motion/PageTransition'
+import { SetupGuideDialog } from '@/components/SetupGuideDialog'
 import { cn } from '@/lib/utils'
 
 interface DevTool {
@@ -19,14 +20,14 @@ const tools: DevTool[] = [
     description: 'Edit src/data/*.json files, with schema validation before every save.',
     icon: Braces,
     href: '/dev/content',
-    implemented: false, // Epic 13 — flips to true once the route exists
+    implemented: true, // Epic 13
   },
   {
     title: 'Blog Post Editor',
     description: 'Create and edit posts under content/blog/, frontmatter included.',
     icon: FileText,
     href: '/dev/blog',
-    implemented: false, // Epic 14 — flips to true once the route exists
+    implemented: true, // Epic 14
   },
   {
     title: 'More tools',
@@ -55,6 +56,7 @@ export function CustomizePage() {
             Local-only tools for editing this site&rsquo;s content — nothing here touches the
             deployed site.
           </p>
+          <SetupGuideDialog />
         </div>
 
         <div

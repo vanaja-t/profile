@@ -13,8 +13,10 @@ const experienceEntrySchema = z.object({
 
 export type ExperienceEntry = z.infer<typeof experienceEntrySchema>
 
+export const experienceFileSchema = z.array(experienceEntrySchema)
+
 const parsedExperience: ExperienceEntry[] = validateData(
-  z.array(experienceEntrySchema),
+  experienceFileSchema,
   raw,
   'src/data/experience.json',
 )

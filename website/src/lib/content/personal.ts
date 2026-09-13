@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { validateData } from '@/lib/validate-data'
 import raw from '@/data/personal.json'
 
-const personalSchema = z.object({
+export const personalSchema = z.object({
   name: z.string(),
   title: z.string(),
   tagline: z.string(),

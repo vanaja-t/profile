@@ -11,11 +11,9 @@ const galleryEntrySchema = z.object({
 
 export type GalleryEntry = z.infer<typeof galleryEntrySchema>
 
-export const gallery: GalleryEntry[] = validateData(
-  z.array(galleryEntrySchema),
-  raw,
-  'src/data/gallery.json',
-)
+export const galleryFileSchema = z.array(galleryEntrySchema)
+
+export const gallery: GalleryEntry[] = validateData(galleryFileSchema, raw, 'src/data/gallery.json')
 
 /** Base-aware URL for a gallery image (files live under `public/gallery/`). */
 export function galleryImageSrc(imageFile: string): string {

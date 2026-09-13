@@ -11,4 +11,6 @@ const hobbySchema = z.object({
 
 export type Hobby = z.infer<typeof hobbySchema>
 
-export const hobbies: Hobby[] = validateData(z.array(hobbySchema), raw, 'src/data/hobbies.json')
+export const hobbiesFileSchema = z.array(hobbySchema)
+
+export const hobbies: Hobby[] = validateData(hobbiesFileSchema, raw, 'src/data/hobbies.json')

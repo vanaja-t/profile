@@ -5,7 +5,7 @@ import { personal } from '@/lib/content/personal'
 import { HomePage } from './HomePage'
 
 describe('HomePage (ST-100, Epic 5)', () => {
-  it('renders every section in order: Hero, About, Skills, Hobbies, Projects, Testimonials, Gallery, Contact', () => {
+  it('renders every section in order: Hero, About, Skills, Projects, Testimonials, Contact', () => {
     render(
       <MemoryRouter>
         <HomePage />
@@ -15,15 +15,7 @@ describe('HomePage (ST-100, Epic 5)', () => {
     expect(screen.getByRole('heading', { name: personal.name, level: 1 })).toBeInTheDocument()
 
     const headingTexts = screen.getAllByRole('heading', { level: 2 }).map((h) => h.textContent)
-    expect(headingTexts).toEqual([
-      'About',
-      'Skills',
-      'Hobbies',
-      'Projects',
-      'Testimonials',
-      'Gallery',
-      'Get in touch',
-    ])
+    expect(headingTexts).toEqual(['About', 'Skills', 'Projects', 'Testimonials', 'Get in touch'])
   })
 
   it("wires the hero's CTAs to their target routes/anchor", () => {

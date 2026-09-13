@@ -12,8 +12,10 @@ const certificationSchema = z.object({
 
 export type Certification = z.infer<typeof certificationSchema>
 
+export const certificationsFileSchema = z.array(certificationSchema)
+
 export const certifications: Certification[] = validateData(
-  z.array(certificationSchema),
+  certificationsFileSchema,
   raw,
   'src/data/certifications.json',
 )

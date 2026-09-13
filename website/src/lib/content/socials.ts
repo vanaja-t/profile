@@ -10,4 +10,6 @@ const socialSchema = z.object({
 
 export type Social = z.infer<typeof socialSchema>
 
-export const socials: Social[] = validateData(z.array(socialSchema), raw, 'src/data/socials.json')
+export const socialsFileSchema = z.array(socialSchema)
+
+export const socials: Social[] = validateData(socialsFileSchema, raw, 'src/data/socials.json')

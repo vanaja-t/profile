@@ -24,16 +24,24 @@ describe('CustomizePage (ST-111)', () => {
     expect(screen.getByRole('alert')).toHaveTextContent(/npm run dev/i)
   })
 
-  it('disables every tool button until its route is actually implemented', () => {
+  it('enables the JSON Content Editor and Blog Post Editor (Epics 13, 14), but not "More tools"', () => {
     // vitest runs with import.meta.env.DEV === true, so this specifically
-    // proves the *unimplemented* tools stay disabled even in a dev build —
+    // proves the *unimplemented* tool stays disabled even in a dev build —
     // not just "disabled because not running locally".
     renderPage()
-    const buttons = screen.getAllByRole('button')
-    expect(buttons).toHaveLength(3)
-    for (const button of buttons) {
-      expect(button).toBeDisabled()
-    }
-    expect(screen.queryByRole('link', { name: 'Open' })).not.toBeInTheDocument()
+    const openLinks = screen.getAllByRole('link', { name: 'Open' })
+    expect(openLinks.map((link) => link.getAttribute('href'))).toEqual([
+      '/dev/content',
+      '/dev/blog',
+    ])
+
+    const disabledButtons = screen.getAllByRole('button', { name: /Coming soon/i })
+    expect(disabledButtons).toHaveLength(1) // More tools
+    expect(disabledButtons[0]).toBeDisabled()
+  })
+
+  it('has a setup guide trigger (ST-083)', () => {
+    renderPage()
+    expect(screen.getByRole('button', { name: /Setup your profile/i })).toBeInTheDocument()
   })
 })

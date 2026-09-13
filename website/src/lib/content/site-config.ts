@@ -15,7 +15,7 @@ const navItemSchema = z.object({
   order: z.number(),
 })
 
-const siteConfigSchema = z.object({
+export const siteConfigSchema = z.object({
   siteTitle: z.string(),
   tagline: z.string(),
   basePath: z.string(),

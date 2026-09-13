@@ -12,4 +12,6 @@ const awardSchema = z.object({
 
 export type Award = z.infer<typeof awardSchema>
 
-export const awards: Award[] = validateData(z.array(awardSchema), raw, 'src/data/awards.json')
+export const awardsFileSchema = z.array(awardSchema)
+
+export const awards: Award[] = validateData(awardsFileSchema, raw, 'src/data/awards.json')

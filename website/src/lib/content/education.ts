@@ -13,8 +13,10 @@ const educationEntrySchema = z.object({
 
 export type EducationEntry = z.infer<typeof educationEntrySchema>
 
+export const educationFileSchema = z.array(educationEntrySchema)
+
 export const education: EducationEntry[] = validateData(
-  z.array(educationEntrySchema),
+  educationFileSchema,
   raw,
   'src/data/education.json',
 )

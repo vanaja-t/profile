@@ -23,6 +23,11 @@
     "vite.config.ts",
     "vite-plugin-favicon.ts",
     "vite-plugin-blog-posts.ts",
-    "vite-plugin-spa-fallback.ts"
+    "vite-plugin-spa-fallback.ts",
+    "vite-plugin-content-editor.ts",
+    "vite-plugin-content-editor.test.ts",
+    "vite-plugin-blog-editor.ts",
+    "vite-plugin-blog-editor.test.ts",
+    "vite-plugin-dev-routes.ts"
   ]
 }

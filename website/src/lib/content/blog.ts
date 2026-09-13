@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { validateData } from '@/lib/validate-data'
 import rawPosts from 'virtual:blog-posts'
 
-const frontmatterSchema = z.object({
+export const frontmatterSchema = z.object({
   title: z.string(),
   date: z.string(),
   tags: z.array(z.string()),

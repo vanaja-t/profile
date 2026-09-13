@@ -23,7 +23,7 @@ export function Header() {
           scrolled ? 'py-2' : 'py-4',
         )}
       >
-        <NavLink to="/" className="font-heading text-[23px] font-semibold text-foreground">
+        <NavLink to="/" className="font-heading text-[12px] font-semibold text-foreground">
           {siteConfig.siteTitle}
         </NavLink>
 

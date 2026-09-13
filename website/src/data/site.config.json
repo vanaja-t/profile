@@ -13,11 +13,12 @@
     { "id": "home", "label": "Home", "enabled": true, "order": 1 },
     { "id": "resume", "label": "Resume", "enabled": true, "order": 2 },
     { "id": "projects", "label": "Projects", "enabled": true, "order": 3 },
-    { "id": "blog", "label": "Blog", "enabled": true, "order": 4 }
+    { "id": "others", "label": "Others", "enabled": true, "order": 4 },
+    { "id": "blog", "label": "Blog", "enabled": true, "order": 5 }
   ],
   "contactForm": {
     "provider": "formspree",
-    "endpoint": "https://formspree.io/f/your-form-id"
+    "endpoint": "https://formspree.io/f/xljeydej"
   },
   "showCustomizeGuide": true
 }

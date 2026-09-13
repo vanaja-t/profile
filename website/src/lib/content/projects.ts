@@ -15,11 +15,9 @@ const projectSchema = z.object({
 
 export type Project = z.infer<typeof projectSchema>
 
-const parsedProjects: Project[] = validateData(
-  z.array(projectSchema),
-  raw,
-  'src/data/projects.json',
-)
+export const projectsFileSchema = z.array(projectSchema)
+
+const parsedProjects: Project[] = validateData(projectsFileSchema, raw, 'src/data/projects.json')
 
 // Featured projects sort first, original order preserved otherwise (ST-052).
 export const projects: Project[] = [...parsedProjects].sort(

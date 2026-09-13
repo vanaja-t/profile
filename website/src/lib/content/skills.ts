@@ -15,8 +15,6 @@ const skillCategorySchema = z.object({
 export type SkillItem = z.infer<typeof skillItemSchema>
 export type SkillCategory = z.infer<typeof skillCategorySchema>
 
-export const skills: SkillCategory[] = validateData(
-  z.array(skillCategorySchema),
-  raw,
-  'src/data/skills.json',
-)
+export const skillsFileSchema = z.array(skillCategorySchema)
+
+export const skills: SkillCategory[] = validateData(skillsFileSchema, raw, 'src/data/skills.json')

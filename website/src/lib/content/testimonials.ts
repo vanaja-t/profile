@@ -13,8 +13,10 @@ const testimonialSchema = z.object({
 
 export type Testimonial = z.infer<typeof testimonialSchema>
 
+export const testimonialsFileSchema = z.array(testimonialSchema)
+
 export const testimonials: Testimonial[] = validateData(
-  z.array(testimonialSchema),
+  testimonialsFileSchema,
   raw,
   'src/data/testimonials.json',
 )
