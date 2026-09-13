@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { Rocket } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
@@ -10,28 +9,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from '@/components/ui/dialog'
-
-function Code({ children }: { children: string }) {
-  return (
-    <code className="rounded-[calc(var(--radius)-0.25rem)] bg-muted px-1 py-0.5 font-mono text-xs text-foreground">
-      {children}
-    </code>
-  )
-}
-
-function Step({ n, title, children }: { n: number; title: string; children: ReactNode }) {
-  return (
-    <li className="flex gap-3">
-      <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
-        {n}
-      </span>
-      <div className="flex flex-col gap-1 pt-0.5">
-        <p className="font-medium text-foreground">{title}</p>
-        <div className="text-sm text-muted-foreground [&_code]:mx-0.5">{children}</div>
-      </div>
-    </li>
-  )
-}
+import { Code, Step } from '@/components/GuideStep'
 
 /**
  * Setup instructions (ST-083), rendered in-app rather than as a README —
@@ -128,8 +106,8 @@ export function SetupGuideDialog() {
 
           <Step n={8} title="Deploy">
             Push to <Code>main</Code> — a GitHub Actions workflow builds and deploys to GitHub Pages
-            automatically. One-time manual step: in your repo&rsquo;s{' '}
-            <strong>Settings → Pages</strong>, set the source to <strong>GitHub Actions</strong>.
+            automatically. First time only, see the <strong>Publish to GitHub Pages</strong> link
+            below for the one-time settings step.
           </Step>
 
           <Step n={9} title="About the footer badge">

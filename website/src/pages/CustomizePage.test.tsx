@@ -44,4 +44,9 @@ describe('CustomizePage (ST-111)', () => {
     renderPage()
     expect(screen.getByRole('button', { name: /Setup your profile/i })).toBeInTheDocument()
   })
+
+  it('has a publish guide trigger', () => {
+    renderPage()
+    expect(screen.getByRole('button', { name: /Publish to GitHub Pages/i })).toBeInTheDocument()
+  })
 })
